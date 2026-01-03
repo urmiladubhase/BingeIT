@@ -24,3 +24,4 @@ UI:
 - BingeIT
     - Search BAR
     - Movie Recommendation
+# BingeIT
