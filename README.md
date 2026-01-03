@@ -16,7 +16,7 @@ UI:
 - Browse (After signUp)
     - Header
     - Main movie
-        - TRailer In BG
+        - Trailer In BG
         - Title and INfo
         - Suggestions
         - Lists of Movies
@@ -24,4 +24,10 @@ UI:
 - BingeIT
     - Search BAR
     - Movie Recommendation
+
+
+# Points:
+
+- write rafce and enter then it will create new functional componet (react arrow function component export)
+- 
 # BingeIT
