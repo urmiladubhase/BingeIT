@@ -4,7 +4,7 @@ configured tailwind CSS through the following docs::https://www.geeksforgeeks.or
 
 https://play.google.com/store/apps/details?id=nl.bindinc.binge
 
-
+BG Image =https://assets.nflxext.com/ffe/siteui/vlv3/d13e2d55-5cdd-48c0-a55b-4b292d0b9889/web/IN-en-20251229-TRIFECTA-perspective_d7edcd70-4cfd-441c-858c-c5e400ed6c2b_large.jpg
 # IDEA
 
 UI:
@@ -31,3 +31,10 @@ UI:
 - write rafce and enter then it will create new functional componet (react arrow function component export)
 - 
 # BingeIT
+
+
+# Form Validation -
+   - When you are trieng to use the form validations we can use the library formic which is used to crete form
+
+   - 
+
