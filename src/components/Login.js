@@ -1,18 +1,33 @@
+
 import Header from "./Header";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { checkValidData } from "../utils/Validation";
 
 const Login = () => {
 //This is the logic for the use same form as for sign in and sign up as to save time and logic is used as if else
   const [isSignIn, setIsSignIn] = useState(true);
+
+//To get the data to be validated we use us this hook
+const email = useRef(null);
+const password = useRef(null);
+
+const handleButtonClick = () => {
+  //Used below functionto validate the data
+  console.log(email.current.value);
+  console.log(password.current.value);
+  const message = checkValidData(email.current.value, password.current.value);
+
+  console.log(message);
+}
+
+//Create the Sign In and SignUp form in one form 
   const toggleSignIn = () => {
-
     setIsSignIn(!isSignIn);//toggle between two forms sign in and sign up
-
-
   }
 
   return (
     <div>
+
       <Header />
 
       {/* Background Image */}
@@ -21,25 +36,20 @@ const Login = () => {
         alt="BG"  />
       </div>
       
-
-
       {/* Login Form */}
-        <form className="w-4/12 absolute p-2 bg-black bg-opacity-85 my-36 mx-auto right-0 left-0 h-auto" >
+        <form onSubmit={(e)=>e.preventDefault()} className="w-4/12 absolute p-10 bg-black bg-opacity-85 my-36 mx-auto right-0 left-0 h-auto" >
           <h1 className="text-white text-2xl">{isSignIn ? "Sign In" : "Sign Up"}</h1>
-          { !isSignIn && (<input type="text" placeholder="First Name Last Name" className="p-3 my-2 rounded w-full bg-black bg-opacity-60 border border-gray-700"/>) }
+          { !isSignIn && (<input type="text" placeholder="First Name Last Name" className="p-3 my-2 rounded w-full bg-black bg-opacity-60 border border-gray-700 text-white"/>) }
 
-          <input type="text" placeholder="Email Address/phone number" className="p-3 my-2 rounded w-full bg-black bg-opacity-60 border border-gray-700"/>
-          <input type="text" placeholder="Password" className="p-3 my-2 rounded w-full  bg-black bg-opacity-60 border border-gray-700"/>
-          <button type="submit" className="p-3 my-2 bg-red-700 text-white w-full rounded">{isSignIn ? "Sign In" : "Sign Up"}</button>
+          <input ref={email} type="email" placeholder="Email Address/phone number" className="p-3 my-2 rounded w-full bg-black bg-opacity-60 border border-gray-700 text-white"/>
+          <input ref={password} type="password" placeholder="Password" className="p-3 my-2 rounded w-full  bg-black bg-opacity-60 border border-gray-700 text-white"/>
+          <button type="submit" className="p-3 my-2 bg-red-700 text-white w-full rounded" onClick={handleButtonClick}>{isSignIn ? "Sign In" : "Sign Up"}</button>
           
           {isSignIn && (<><p className="text-white text-center">OR</p>
           <button className="p-3 my-2  bg-gray-600 bg-opacity-60 text-white w-full rounded">Sign In with code</button></>)}
-        
-
           <p className="text-white " onClick={toggleSignIn} >New to Netflix? <span className="text-bold">Sign up now. </span></p>
         </form>
 
-       
       </div>
   )
 }
