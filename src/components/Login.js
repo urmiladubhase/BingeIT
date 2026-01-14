@@ -2,10 +2,15 @@
 import Header from "./Header";
 import { useRef, useState } from "react";
 import { checkValidData } from "../utils/Validation";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../utils/firebase";
+
 
 const Login = () => {
 //This is the logic for the use same form as for sign in and sign up as to save time and logic is used as if else
-  const [isSignIn, setIsSignIn] = useState(true);
+const [isSignIn, setIsSignIn] = useState(true);
+const [errorMessage, setErrorMessage] = useState(null);  
+
 
 //To get the data to be validated we use us this hook
 const email = useRef(null);
@@ -13,11 +18,32 @@ const password = useRef(null);
 
 const handleButtonClick = () => {
   //Used below functionto validate the data
-  console.log(email.current.value);
-  console.log(password.current.value);
+  
   const message = checkValidData(email.current.value, password.current.value);
 
-  console.log(message);
+  setErrorMessage(message);
+  if (message)return;
+  // SignUP  or SignIn Logic
+  if(!isSignIn){
+    // Sign UP logic
+    createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+  .then((userCredential) => {
+    const user = userCredential.user;
+    console.log(user);
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    setErrorMessage (errorCode, errorMessage);
+    });
+
+  }else{
+    // Sign UP logic
+
+
+  }
+
+
 }
 
 //Create the Sign In and SignUp form in one form 
@@ -43,6 +69,7 @@ const handleButtonClick = () => {
 
           <input ref={email} type="email" placeholder="Email Address/phone number" className="p-3 my-2 rounded w-full bg-black bg-opacity-60 border border-gray-700 text-white"/>
           <input ref={password} type="password" placeholder="Password" className="p-3 my-2 rounded w-full  bg-black bg-opacity-60 border border-gray-700 text-white"/>
+          <p className="text-red-600">{errorMessage}</p>
           <button type="submit" className="p-3 my-2 bg-red-700 text-white w-full rounded" onClick={handleButtonClick}>{isSignIn ? "Sign In" : "Sign Up"}</button>
           
           {isSignIn && (<><p className="text-white text-center">OR</p>
