@@ -2,19 +2,23 @@
 import Header from "./Header";
 import { useRef, useState } from "react";
 import { checkValidData } from "../utils/Validation";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword ,updateProfile} from "firebase/auth";
 import {signInWithEmailAndPassword} from "firebase/auth";
 import { auth } from "../utils/firebase";
+import { useNavigate } from "react-router-dom";
 
 
 const Login = () => {
 //This is the logic for the use same form as for sign in and sign up as to save time and logic is used as if else
 const [isSignIn, setIsSignIn] = useState(true);
 const [errorMessage, setErrorMessage] = useState(null);  
+const navigate = useNavigate();
+
 
 //To get the data to be validated we use us this hook
 const email = useRef(null);
 const password = useRef(null);
+const name = useRef(null);
 
 const handleButtonClick = () => {
   //Used below functionto validate the data
@@ -29,7 +33,17 @@ const handleButtonClick = () => {
     createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
   .then((userCredential) => {
     const user = userCredential.user;
+    updateProfile(user, {
+  displayName: name.current.value, photoURL: ""
+}).then(() => {
+  // Profile updated!
+  // ...
+}).catch((error) => {
+  // An error occurred
+  // ...
+});
     console.log(user);
+    navigate("/");
   })
   .catch((error) => {
     const errorCode = error.code;
@@ -44,6 +58,8 @@ const handleButtonClick = () => {
   .then((userCredential) => {
     const user = userCredential.user;
     console.log(user);
+  
+    navigate("/browse")
   })
   .catch((error) => {
     const errorCode = error.code;
