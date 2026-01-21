@@ -42,7 +42,9 @@ BG Image =https://assets.nflxext.com/ffe/siteui/vlv3/d13e2d55-5cdd-48c0-a55b-4b2
 - Form Validation validate the data
 - useRef hook -gives some reference  like we use in forms
 - Deployed the project and then Authentication 
-- create new user and authenticate user
+- create new user and authenticate user Implement the user API signin and SignUP
+- setup redux store to store the user data and write the logic
+
 
 
 

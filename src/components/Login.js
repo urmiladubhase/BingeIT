@@ -3,6 +3,7 @@ import Header from "./Header";
 import { useRef, useState } from "react";
 import { checkValidData } from "../utils/Validation";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import {signInWithEmailAndPassword} from "firebase/auth";
 import { auth } from "../utils/firebase";
 
 
@@ -10,7 +11,6 @@ const Login = () => {
 //This is the logic for the use same form as for sign in and sign up as to save time and logic is used as if else
 const [isSignIn, setIsSignIn] = useState(true);
 const [errorMessage, setErrorMessage] = useState(null);  
-
 
 //To get the data to be validated we use us this hook
 const email = useRef(null);
@@ -37,23 +37,29 @@ const handleButtonClick = () => {
     setErrorMessage (errorCode, errorMessage);
     });
 
-  }else{
-    // Sign UP logic
-
-
   }
+  else{
+    // Sign UP logic
+    signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+  .then((userCredential) => {
+    const user = userCredential.user;
+    console.log(user);
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    setErrorMessage (errorCode, errorMessage);
 
-
+  });
+  }
 }
-
 //Create the Sign In and SignUp form in one form 
   const toggleSignIn = () => {
-    setIsSignIn(!isSignIn);//toggle between two forms sign in and sign up
+    setIsSignIn(!isSignIn);  //toggle between two forms sign in and sign up
   }
 
   return (
-    <div>
-
+    <div>  
       <Header />
 
       {/* Background Image */}
