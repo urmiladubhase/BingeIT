@@ -1,19 +1,14 @@
 
-import { RouterProvider } from "react-router-dom";
+import { RouterProvider, useNavigate } from "react-router-dom";
 import { createBrowserRouter } from 'react-router-dom';
 import Login from '../components/Login';
 import Browse from '../components/Browse';
 import { useDispatch } from 'react-redux';
-import { auth } from "../utils/firebase";
-import { onAuthStateChanged } from 'firebase/auth';
-import { addUser, removeUser } from '../utils/userSlice';
-import { useEffect} from 'react';
-
-
 
 const Body = () => { 
-const dispatch =useDispatch();
-  
+
+
+// Routing of the pages
 const appRouter = createBrowserRouter([
   {
             path:"/",
@@ -25,21 +20,6 @@ const appRouter = createBrowserRouter([
         },
     ]);
 
-    useEffect(() => { 
-     onAuthStateChanged(auth,(user) => { 
-  if (user) {
-    const {uid, email,displayName} = user;
-    dispatch(addUser({
-      uid:uid,
-      email:email, 
-      displayName: displayName}));
-    
-  } else {
-    dispatch(removeUser());
- 
-  }
-});
-});
     
   return (
     <div>
