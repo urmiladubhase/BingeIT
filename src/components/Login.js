@@ -5,14 +5,13 @@ import { checkValidData } from "../utils/Validation";
 import { createUserWithEmailAndPassword ,updateProfile} from "firebase/auth";
 import {signInWithEmailAndPassword} from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
+import { BGIMG } from "../utils/constants";
 
 
 const Login = () => {
 //This is the logic for the use same form as for sign in and sign up as to save time and logic is used as if else
 const [isSignIn, setIsSignIn] = useState(true);
 const [errorMessage, setErrorMessage] = useState(null);  
-const navigate = useNavigate();
 
 
 //To get the data to be validated we use us this hook
@@ -43,7 +42,7 @@ const handleButtonClick = () => {
   // ...
 });
     console.log(user);
-    navigate("/");
+    
   })
   .catch((error) => {
     const errorCode = error.code;
@@ -59,7 +58,6 @@ const handleButtonClick = () => {
     const user = userCredential.user;
     console.log(user);
   
-    navigate("/browse")
   })
   .catch((error) => {
     const errorCode = error.code;
@@ -80,8 +78,7 @@ const handleButtonClick = () => {
 
       {/* Background Image */}
       <div className=" fixed inset-0 w-full h-screen -z-20"> 
-        <img src="https://assets.nflxext.com/ffe/siteui/vlv3/d13e2d55-5cdd-48c0-a55b-4b292d0b9889/web/IN-en-20251229-TRIFECTA-perspective_d7edcd70-4cfd-441c-858c-c5e400ed6c2b_large.jpg" 
-        alt="BG"  />
+        <img src={BGIMG} alt="BG"  />
       </div>
       
       {/* Login Form */}
