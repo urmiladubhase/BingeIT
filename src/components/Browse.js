@@ -1,27 +1,24 @@
-import React, { useEffect } from 'react'
 import Header from './Header';
-import { API_OPTION } from '../utils/constants';
+import MainContainer from './MainContainer';
+import SecondaryContainer from './SecondaryContainer';
+import useNowplayingMovies from '../hooks/useNowplayingMovies';
 
 const Browse = () => { 
-  //API call function making using async await
 
-  const getNowPlayingMovies =async()=>{
+  useNowplayingMovies();
 
-    const data = await fetch("https://api.themoviedb.org/3/movie/now_playing?page=1",API_OPTION);
-    const json =data.json();
-    console.log(json);
 
-  };
-  //to make an API call we use useEffect as it will call once while rendering the function
-  useEffect(()=>{
-    getNowPlayingMovies();
-
-  },[]);
-
-  // while using useEffect this [] empty paranthesis is very important if we missed it then we see infinite API calls
   return (
-    <div><Header/></div>
+    <div><Header/>
+    <MainContainer/>
+    <SecondaryContainer/></div>
+  
   )
 }
 
 export default Browse;  
+ 
+
+
+//Note-   in react 18 the code renders two time so it will give every output as 2 times it is due to sticct mode
+// to resolve this we have to remove the strict mode from the index .js for app   

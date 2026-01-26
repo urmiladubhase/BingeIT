@@ -46,8 +46,9 @@ BG Image =https://assets.nflxext.com/ffe/siteui/vlv3/d13e2d55-5cdd-48c0-a55b-4b2
 - setup redux store to store the user data and write the logic
 - Hardcoded files added in constants
 - Building Browse page
-- tmdb
-
+- Regiser TMDB API and create an application and get acess token
+- get data from now playing movie list and fetch the data
+- 
 
 
 # Form Validation -
