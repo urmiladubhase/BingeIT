@@ -7,18 +7,18 @@ export const API_OPTION = {
     method : 'GET',
     headers : {
         accept: "application/json",
-        Authorization:'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1ZWNiYWJkOGE4MDIzNzlkZDc2NjVmZmY3NGY1OWE0MCIsIm5iZiI6MTc2OTA3NzgwMi4yMiwic3ViIjoiNjk3MWZjMmEzNGFmMjhiYTNmZGFhM2JjIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.feqX86_ZTBEs91iMge3XYyAW82ZEeF-divwOJu0_Y1g' 
+        Authorization:"Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1ZWNiYWJkOGE4MDIzNzlkZDc2NjVmZmY3NGY1OWE0MCIsIm5iZiI6MTc2OTA3NzgwMi4yMiwic3ViIjoiNjk3MWZjMmEzNGFmMjhiYTNmZGFhM2JjIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.feqX86_ZTBEs91iMge3XYyAW82ZEeF-divwOJu0_Y1g"
     },
 };
 
-export const OPTION = {
+// export const OPTION = {
 
-    method : 'GET',
-    headers : {
-        accept: "application/json",
-        Authorization:'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1ZWNiYWJkOGE4MDIzNzlkZDc2NjVmZmY3NGY1OWE0MCIsIm5iZiI6MTc2OTA3NzgwMi4yMiwic3ViIjoiNjk3MWZjMmEzNGFmMjhiYTNmZGFhM2JjIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.feqX86_ZTBEs91iMge3XYyAW82ZEeF-divwOJu0_Y1g' 
-    },
-};
+//     method : 'GET',
+//     headers : {
+//         accept: "application/json",
+//         Authorization:'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1ZWNiYWJkOGE4MDIzNzlkZDc2NjVmZmY3NGY1OWE0MCIsIm5iZiI6MTc2OTA3NzgwMi4yMiwic3ViIjoiNjk3MWZjMmEzNGFmMjhiYTNmZGFhM2JjIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.feqX86_ZTBEs91iMge3XYyAW82ZEeF-divwOJu0_Y1g' 
+//     },
+// };
 
 
 

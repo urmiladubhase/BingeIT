@@ -3,9 +3,10 @@ import { API_OPTION } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { addTrailerVideo } from "../utils/movieSlice";
 
-const useMovieTrailer = () => {
+const useMovieTrailer = (movieId) => {
     const dispatch =useDispatch();
   const getMovieVideos = async () => {
+     if (!movieId) return; 
     const data = await fetch(
       `https://api.themoviedb.org/3/movie/${movieId}/videos`,
       API_OPTION
@@ -25,11 +26,7 @@ const useMovieTrailer = () => {
   useEffect(() => {
      getMovieVideos();
   }, []);
-  return (
-    <div>
-
-    </div>
-  )
+  return
 }
 
-export default useMovieTrailer
+export default useMovieTrailer;
