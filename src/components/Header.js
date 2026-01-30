@@ -45,7 +45,7 @@ return () => unsubscribe();
 },[dispatch, navigate]);
   return (
 <header>
-    <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/90"></div>
+    <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-t from-transparent via-black/60 to-black/90"></div>
    <div className="absolute flex justify-between p-4 w-full items-center">
     <div className="w-40">
     <img src={LOGO} alt="Netflix Logo" />  

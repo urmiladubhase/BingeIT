@@ -8,13 +8,13 @@ const MainContainer = () => {
     if (movie == null) return;   
 
     const mainMovie = movie[0];
-    console.log(mainMovie);
+    //console.log(mainMovie);
 
     const { original_title, overview,id} = mainMovie; //b extracted from the data.json
 
   return (
   <div>
-    
+
     <VideoTitle title={original_title} overview={overview}/>
     <VideoBackground movieId={id}/>
 
