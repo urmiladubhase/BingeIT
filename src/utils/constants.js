@@ -11,6 +11,7 @@ export const API_OPTION = {
     },
 };
 
+export const MOVIE_IMG="https://image.tmdb.org/t/p/w500";
 // export const OPTION = {
 
 //     method : 'GET',
