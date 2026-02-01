@@ -48,7 +48,15 @@ BG Image =https://assets.nflxext.com/ffe/siteui/vlv3/d13e2d55-5cdd-48c0-a55b-4b2
 - Building Browse page
 - Regiser TMDB API and create an application and get acess token
 - get data from now playing movie list and fetch the data
-- 
+- created movie slice 
+- creted main and secondary video 
+- added  movie data to store and added trailer data also 
+- added youtube trailer
+- added CSS to mail comtainer
+- Build secondary container
+- create movie list of different category
+
+
 
 
 # Form Validation -

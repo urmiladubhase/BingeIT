@@ -18,8 +18,6 @@ const Browse = () => {
 
 export default Browse;  
  
-
-
 // Note - in react 18 the code renders two time so 
 // it will give every output as 2 times it is due to sticct mode
 // toresolve this we have to remove the strict mode from the index .js

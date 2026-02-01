@@ -14,6 +14,7 @@ const VideoBackground = ({ movieId }) => {
           allow="autoplay; encrypted-media; picture-in-picture"
           allowFullScreen
         ></iframe>
+        
     
     </div>
   );
