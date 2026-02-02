@@ -55,6 +55,10 @@ BG Image =https://assets.nflxext.com/ffe/siteui/vlv3/d13e2d55-5cdd-48c0-a55b-4b2
 - added CSS to mail comtainer
 - Build secondary container
 - create movie list of different category
+- created Movie Lists
+- created Movie Cards for two category
+- Ceate GPT Search component
+
 
 
 
