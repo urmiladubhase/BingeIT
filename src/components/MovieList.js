@@ -1,9 +1,8 @@
-import React from 'react'
 import MovieCard from './MovieCard';
 
 const MovieList = ({title, movie}) => {
 
-    console.log(movie);
+    //console.log(movie);
     if (!movie || movie.length === 0) return null; // This line stops the component from rendering until the API data is available.
 
   return (

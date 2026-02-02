@@ -7,7 +7,7 @@ const movie = useSelector((store)=> store.movie);
     <div className="bg-black">
       <div className="-mt-60 relative z-20">
        <MovieList title={"Now Playing"} movie={movie.nowPlayingMovies}/>
-       <MovieList title={"Trending"} movie={movie.nowPlayingMovies}/>
+       <MovieList title={"Popular"} movie={movie.popularMovies}/>
        <MovieList title={"Most Watched"} movie={movie.nowPlayingMovies}/>
        <MovieList title={"New"} movie={movie.nowPlayingMovies}/>
 

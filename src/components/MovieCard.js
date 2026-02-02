@@ -1,4 +1,3 @@
-import React from 'react';
 import { MOVIE_IMG } from '../utils/constants';
 
 
@@ -14,4 +13,4 @@ const MovieCard = ({posterPath}) => {
   )
 }
 
-export default MovieCard
+export default MovieCard;
