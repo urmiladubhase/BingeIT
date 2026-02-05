@@ -7,6 +7,7 @@ import { useEffect} from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { LOGO } from "../utils/constants";
 import { toggleGptSearchView } from "../utils/GPTSlice";
+import lang  from "../utils/languageConstants";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -59,7 +60,7 @@ const handleGPTSearchClick =() => {
 
   return (
      <header className="absolute z-50 w-full">
-  <div className="flex items-center justify-between px-6 py-4 w-full">
+  <div className="flex items-center justify-between px-6 py-4 w-full bg-gradient-to-t to-black ">
     
     {/* Left - Logo */}
     <img src={LOGO} alt="Netflix Logo" className="w-40" />
@@ -67,6 +68,11 @@ const handleGPTSearchClick =() => {
     {/* Right - Buttons */}
     {user && (
       <div className="flex items-center gap-4">
+        <select>
+          <option value={en}>English</option>
+          <option value={Marathi}>Marathi</option>
+          <option value={Italian}>Italian</option>
+        </select>
         <button
           onClick={handleGPTSearchClick}
           className="px-3 py-2 bg-white text-black rounded"
