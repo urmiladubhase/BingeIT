@@ -1,14 +1,14 @@
 const lang ={
     en : {
         Search:"Search",
-        placeholder:'What would you like to watch it today?'
+        placeholder:'What would you like to watch today?'
     },
-    Marathi : {
+    mr : {
         Search:"शोध",
         placeholder: "आज तुम्हाला काय पहायला आवडेल?"
     },
-    Spanish : {
-        Search:"ricerca",
+    it : {
+        Search:"Ricerca",
         placeholder: "Cosa vorresti guardare oggi?"
     },
     

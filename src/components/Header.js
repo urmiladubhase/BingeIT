@@ -5,14 +5,16 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { addUser, removeUser } from '../utils/userSlice';
 import { useEffect} from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { LOGO } from "../utils/constants";
+import { LOGO, SUPPORTED_LANGUAGES } from "../utils/constants";
 import { toggleGptSearchView } from "../utils/GPTSlice";
-import lang  from "../utils/languageConstants";
+import { changeLanguage } from "../utils/configSlice";
+//import lang  from "../utils/languageConstants";
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch =useDispatch();
   const user = useSelector((store) => store.user);
+  const showGptSearch = useSelector((store)=>store.gpt.showGptSearch);
   const handleSignOut =() => {
     signOut(auth).then(() => {
       
@@ -55,6 +57,10 @@ const Header = () => {
 
 const handleGPTSearchClick =() => {
     dispatch(toggleGptSearchView());
+  };
+
+  const handleLanguageChange =(e) =>{
+    dispatch(changeLanguage(e.target.value));
   }
 
 
@@ -65,19 +71,17 @@ const handleGPTSearchClick =() => {
     {/* Left - Logo */}
     <img src={LOGO} alt="Netflix Logo" className="w-40" />
 
-    {/* Right - Buttons */}
+    {/* Right - Buttons */} 
     {user && (
       <div className="flex items-center gap-4">
-        <select>
-          <option value={en}>English</option>
-          <option value={Marathi}>Marathi</option>
-          <option value={Italian}>Italian</option>
-        </select>
+        {showGptSearch && (<select className="p-2 m-2 bg-black text-white" onChange={handleLanguageChange}>
+          {SUPPORTED_LANGUAGES.map((lang) => (<option key={lang.identifier} value={lang.identifier} >{lang.name}</option>))}
+        </select>) }
         <button
           onClick={handleGPTSearchClick}
           className="px-3 py-2 bg-white text-black rounded"
         >
-          GPT Search
+         {showGptSearch ? "HomePage" : "GPT Search"}
         </button>
 
         <img

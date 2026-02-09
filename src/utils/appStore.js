@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "./userSlice";
 import movieReducer from "./movieSlice";
 import gptReducer from "./GPTSlice";
-
+import configReducer from "./configSlice"
 
 const appStore =configureStore(
 
@@ -11,6 +11,7 @@ const appStore =configureStore(
             user : userReducer,
             movie : movieReducer, 
             gpt : gptReducer,
+            config :configReducer,
         },
 
     }

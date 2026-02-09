@@ -1,15 +1,3 @@
-
-
-
-# BingeIT!!
-- Create-react app
-configured tailwind CSS through the following docs::https://www.geeksforgeeks.org/installation-guide/how-to-install-tailwind-css-with-create-react-app/
-
-https://play.google.com/store/apps/details?id=nl.bindinc.binge
-
-BG Image =https://assets.nflxext.com/ffe/siteui/vlv3/d13e2d55-5cdd-48c0-a55b-4b292d0b9889/web/IN-en-20251229-TRIFECTA-perspective_d7edcd70-4cfd-441c-858c-c5e400ed6c2b_large.jpg
-
-
 # IDEA UI:
 
 - Login /SignUp
@@ -58,10 +46,12 @@ BG Image =https://assets.nflxext.com/ffe/siteui/vlv3/d13e2d55-5cdd-48c0-a55b-4b2
 - created Movie Lists
 - created Movie Cards for two category
 - Ceate GPT Search component
+- created GPT search Page
+- created the togle feature for the languages
+- added languages to store
+- 
 
 
 
 
 
-# Form Validation -
-   - When you are trieng to use the form validations we can use the library formic which is used to crete form
