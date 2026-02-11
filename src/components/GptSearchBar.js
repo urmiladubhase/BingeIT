@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import lang from '../utils/languageConstants'
 import { useSelector } from 'react-redux'
 import genAI from '../utils/openai'
@@ -13,7 +13,10 @@ const handleGPTSearchClick = async() => {
     searchText.current.value +
     ". Only give me names of 5 movies, comma separated.";
     try{
-      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+      const model = genAI.getGenerativeModel(
+        { model: "gemini-2.5-flash" },
+        { apiVersion: 'v1' }
+      );
       
     const result = await model.generateContent(gptQuery);
     const response = result.response.text();
@@ -22,30 +25,9 @@ const handleGPTSearchClick = async() => {
     catch (error) {
       console.error("GPT Error:", error);
     }
-    const listModels = async () => {
-  const models = await genAI.listModels();
-  console.log(models);
-};
-
-listModels();
+    
 
   }
-  useEffect(() => {
-  const test = async () => {
-    const model = genAI.getGenerativeModel({
-      model: "gemini-1.5-flash-latest",
-    });
-
-    const result = await model.generateContent(
-      "Suggest 5 action movies"
-    );
-
-    console.log(result.response.text());
-  };
-
-  test();
-}, []);
-
 return  (
     <div className='pt-[8%] flex justify-center '>
         <form className='w-1/2 bg-black grid grid-cols-12' onSubmit={(e)=>e.preventDefault()  }> 
