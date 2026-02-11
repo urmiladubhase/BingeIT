@@ -7,6 +7,10 @@
 extra.md
 .env
 
+/backend
+/backend/node_modules
+
+
 # testing
 /coverage
 

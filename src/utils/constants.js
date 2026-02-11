@@ -8,8 +8,7 @@ export const API_OPTION = {
     method : 'GET',
     headers : {
         accept: "application/json",
-        Authorization:"Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1ZWNiYWJkOGE4MDIzNzlkZDc2NjVmZmY3NGY1OWE0MCIsIm5iZiI6MTc2OTA3NzgwMi4yMiwic3ViIjoiNjk3MWZjMmEzNGFmMjhiYTNmZGFhM2JjIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.feqX86_ZTBEs91iMge3XYyAW82ZEeF-divwOJu0_Y1g"
-    },
+        Authorization:"Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1ZWNiYWJkOGE4MDIzNzlkZDc2NjVmZmY3NGY1OWE0MCIsIm5iZiI6MTc2OTA3NzgwMi4yMiwic3ViIjoiNjk3MWZjMmEzNGFmMjhiYTNmZGFhM2JjIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.feqX86_ZTBEs91iMge3XYyAW82ZEeF-divwOJu0_Y1g" },
 };
 
 export const MOVIE_IMG="https://image.tmdb.org/t/p/w500";
@@ -19,4 +18,6 @@ export const SUPPORTED_LANGUAGES = [
         {identifier: "mr", name:"Marathi"},
             {identifier: "it", name:"Italian"},
 ];
-export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY;
+//export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY;
+
+export const GEMINI_API_KEY = process.env.REACT_APP_GEMINI_KEY;

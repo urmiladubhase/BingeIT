@@ -1,27 +1,52 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import lang from '../utils/languageConstants'
 import { useSelector } from 'react-redux'
-import client from '../utils/openai'
+import genAI from '../utils/openai'
 
 const GptSearchBar = () => {
 const langKey = useSelector((store)=>store.config.lang)
 const searchText = useRef(null);
-const handleGPTSearchClick = async() =>{
-  console.log(searchText.current.value)
-  // Make an api call to gpt and get the movie results
-  const gptResults  = await client.responses.create({
-  model: 'gpt-5.2', 
-  instructions: 'You are a coding assistant that talks like a pirate',
-  input: 'Are semicolons optional in JavaScript?',
-});
-console.log(gptResults.output_text);
-
-   
+const handleGPTSearchClick = async() => {
+  console.log(searchText.current.value);
+  const gptQuery = 
+    "Act as a movie recommendation system and suggest some movies for the query: " +
+    searchText.current.value +
+    ". Only give me names of 5 movies, comma separated.";
+    try{
+      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+      
+    const result = await model.generateContent(gptQuery);
+    const response = result.response.text();
+    console.log(response);
+    }
+    catch (error) {
+      console.error("GPT Error:", error);
+    }
+    const listModels = async () => {
+  const models = await genAI.listModels();
+  console.log(models);
 };
 
-  return  (
-    
-    
+listModels();
+
+  }
+  useEffect(() => {
+  const test = async () => {
+    const model = genAI.getGenerativeModel({
+      model: "gemini-1.5-flash-latest",
+    });
+
+    const result = await model.generateContent(
+      "Suggest 5 action movies"
+    );
+
+    console.log(result.response.text());
+  };
+
+  test();
+}, []);
+
+return  (
     <div className='pt-[8%] flex justify-center '>
         <form className='w-1/2 bg-black grid grid-cols-12' onSubmit={(e)=>e.preventDefault()  }> 
             <input ref={searchText} type="text" className='p-4 m-4 col-span-9' placeholder={lang[langKey].placeholder}/>

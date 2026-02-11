@@ -1,7 +1,11 @@
-import OpenAI from "openai";
-import { OPENAI_KEY } from "./constants";
+import { GoogleGenerativeAI } from "@google/generative-ai";
+import {GEMINI_API_KEY} from "./constants"
 
-const client = new OpenAI({
-  apiKey: OPENAI_KEY,dangerouslyAllowBrowser: true , // This is the default and can be omitted
-});
-export default client;
+const genAI = new GoogleGenerativeAI(
+  GEMINI_API_KEY
+);
+//console.log(process.env.REACT_APP_GEMINI_KEY);
+
+
+
+export default genAI;
