@@ -78,7 +78,7 @@ const handleButtonClick = () => {
 
       {/* Background Image */}
       <div className=" fixed inset-0 w-full h-screen -z-20"> 
-        <img src={BGIMG} alt="BG"  />
+        <img  src={BGIMG} alt="BG"  />
       </div>
       
       {/* Login Form */}

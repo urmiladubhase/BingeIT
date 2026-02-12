@@ -66,7 +66,7 @@ const handleGPTSearchClick =() => {
 
   return (
      <header className="absolute z-50 w-full">
-  <div className="flex items-center justify-between px-6 py-4 w-full bg-gradient-to-t to-black ">
+  <div className="flex items-center justify-between px-6 py-4 w-full bg-gradient-to-t to-black  flex-col md:flex-row">
     
     {/* Left - Logo */}
     <img src={LOGO} alt="Netflix Logo" className="w-40" />
