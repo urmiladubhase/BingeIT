@@ -1,17 +1,29 @@
-import React, { useRef } from 'react'
+import  { useRef } from 'react'
 import lang from '../utils/languageConstants'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import genAI from '../utils/openai'
+import { API_OPTION } from '../utils/constants'
+import { addGptMovieResult } from '../utils/GPTSlice'
 
 const GptSearchBar = () => {
 const langKey = useSelector((store)=>store.config.lang)
 const searchText = useRef(null);
+const dispatch =useDispatch();
+const searchMovieTMDB = async (movie) => {
+  const data = await fetch("https://api.themoviedb.org/3/search/movie?query="+movie+"&include_adult=false&language=en-US&page=1",API_OPTION);
+    
+  const json = await data.json();
+  //console.log(json.results);
+  return json.results; 
+
+}
 const handleGPTSearchClick = async() => {
-  console.log(searchText.current.value);
+  //console.log(searchText.current.value);
   const gptQuery = 
     "Act as a movie recommendation system and suggest some movies for the query: " +
     searchText.current.value +
     ". Only give me names of 5 movies, comma separated.";
+    let gptMovies = [];
     try{
       const model = genAI.getGenerativeModel(
         { model: "gemini-2.5-flash" },
@@ -19,15 +31,30 @@ const handleGPTSearchClick = async() => {
       );
       
     const result = await model.generateContent(gptQuery);
-    const response = result.response.text();
-    console.log(response);
+     
+    gptMovies = result.response.text().split(",");
+    // console.log("Full Object:", result.response);
+    //console.log(gptMovies);
     }
     catch (error) {
       console.error("GPT Error:", error);
     }
-    
 
-  }
+    const promiseArray = gptMovies.map(movie => searchMovieTMDB(movie));
+
+    const tmdbResults = await Promise.all(promiseArray);
+    console.log(tmdbResults); 
+    dispatch(addGptMovieResult({
+    movieNames: gptMovies,
+    movieResult: tmdbResults,
+    })
+   );
+
+
+  };
+  // For each movie we have the TMDB API fetch to search and display
+
+
 return  (
     <div className='pt-[8%] flex justify-center '>
         <form className='w-1/2 bg-black grid grid-cols-12' onSubmit={(e)=>e.preventDefault()  }> 

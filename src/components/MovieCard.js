@@ -2,7 +2,7 @@ import { MOVIE_IMG } from '../utils/constants';
 
 
 const MovieCard = ({posterPath}) => {
-      //if (!posterPath) return null;
+      if (!posterPath) return null;
 
   return (
     <div className="w-44 pr-3">

@@ -1,5 +1,5 @@
 import { API_OPTION } from '../utils/constants';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addNowPlayingMovies } from '../utils/movieSlice';
 import  { useEffect} from 'react'
 
@@ -7,8 +7,9 @@ import  { useEffect} from 'react'
 const useNowPlayingMovies = () => {
 
     const dispatch = useDispatch();
+    const nowPlayingMovies= useSelector(store => store.movie.nowPlayingMovies);
   //API call function making using async await
-useEffect(()=>{
+
   const getNowPlayingMovies = async()=>{
 
     const data = await fetch("https://api.themoviedb.org/3/movie/now_playing?page=1",API_OPTION);
@@ -18,8 +19,8 @@ useEffect(()=>{
 
   };
   //to make an API call we use useEffect as it will call once while rendering the function
-  
-    getNowPlayingMovies();
+  useEffect(()=>{
+    !nowPlayingMovies && getNowPlayingMovies();
 
   },[dispatch]);
 
