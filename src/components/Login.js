@@ -96,7 +96,13 @@ const handleButtonClick = () => {
           <p className="text-white " onClick={toggleSignIn} >New to Netflix? <span className="text-bold">Sign up now. </span></p>
         </form>
 
+        <p>This is a personal portfolio project.
+Not affiliated with Netflix, Prime, or any streaming service.
+Do not use real credentials.
+</p>
+
       </div>
+      
   )
 }
 
