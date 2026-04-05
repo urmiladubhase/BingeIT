@@ -1,3 +1,5 @@
+URL: https://bingeit-a6f20.web.app/
+
 # IDEA UI:
 
 - Login /SignUp
